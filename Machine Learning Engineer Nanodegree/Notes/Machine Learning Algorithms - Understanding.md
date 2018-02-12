@@ -57,4 +57,22 @@
 <li> Instead, iit uses a Curve/Plane to divide/classify the data.
 <li> Kernel Method is generally used in conjuction with SVM to find the optimal plane/curve.
 
+### K-Means Clustering
+<li> K-Means Clustering is used where the number of clusters (k) is previously known.
+<li> k random points are taken as the center of the clusters.
+<li> Their distance to all the data points are calculated and the data points closest to each mean-point form the cluster.
+<li> The mean-point are then moved to the center of their respective clusters.
+<li> The distance to the surrounding data points are calculated again 
+<li> Then the data points are re-assigned to clusters based on their distances to the mean-points.
+<li> The mean-point are then moved to the center of their respective clusters again.
+<li> This process is repeated until no more changes are possible.
+
+### Hierarchical Clustering
+<li> Hierarchical Clustering is used when the number of clusters is not known beforehand. But the minimum distance between any two clusters is known.
+<li> Hierarchical Clustering starts with creating mini clusters out of the two data points that have the closest.
+<li> Similarly, all the points are clustered with their closest neighbouring data point.
+<li> Any left over data points are then joined to the mini-clusters closest to them.
+<li> The min-clusters then join with their closest neighbouring min-cluster to form larger clusters.
+<li> This joinng continues until the distance between the clusters reaches the pre-defined distance.
+
 
