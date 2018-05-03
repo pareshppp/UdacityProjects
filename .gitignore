@@ -3,3 +3,8 @@ cifar-10-batches-py/
 *.tar.gz
 *.p
 __pycache__/
+*.data-00000-of-00001
+*.index
+*.meta
+checkpoint
+Image_Classification_2/
