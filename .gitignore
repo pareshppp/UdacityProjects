@@ -8,3 +8,7 @@ __pycache__/
 *.meta
 checkpoint
 Image_Classification_2/
+fruits-360/
+fruits-360_dataset_2018_02_08/
+Training_Images/
+Testing_Images/
