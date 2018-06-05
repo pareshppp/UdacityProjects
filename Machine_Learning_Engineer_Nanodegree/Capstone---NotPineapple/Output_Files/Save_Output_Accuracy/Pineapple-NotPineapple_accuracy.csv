@@ -1,0 +1,10 @@
+,model_name,testing_accuracy
+0,NotPineapple_LeNet_25x25,0.8614457831325302
+0,NotPineapple_LeNet_50x50,0.9548192771084337
+0,NotPineapple_LeNet_100x100,1.0
+0,NotPineapple_FullConn_25x25,0.6867469879518072
+0,NotPineapple_FullConn_50x50,0.5
+0,NotPineapple_FullConn_100x100,0.49096385542168675
+0,NotPineapple_CustomConv_25x25,0.7228915662650602
+0,NotPineapple_CustomConv_50x50,0.8042168674698795
+0,NotPineapple_CustomConv_100x100,0.8674698795180723

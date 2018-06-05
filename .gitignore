@@ -12,3 +12,5 @@ fruits-360/
 fruits-360_dataset_2018_02_08/
 Training_Images/
 Testing_Images/
+*.model
+proposal.zip
