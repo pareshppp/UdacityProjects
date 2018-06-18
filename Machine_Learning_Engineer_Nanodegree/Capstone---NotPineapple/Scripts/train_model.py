@@ -31,7 +31,7 @@ def construct_argument_parser():
                     help='path to input/Training dataset')
     ap.add_argument('-m', '--model', type=str, required=True, \
                     help='name of output model')
-    ap.add_argument('-r', '--resize', type=int, default=28, \
+    ap.add_argument('-r', '--resize', type=int, default=25, \
                     help='image resize shape -- number of pixels in any one dimension')
     ap.add_argument('-a', '--architecture', type=str, default='LeNet', \
                     help='architecture for the convolutional neural network')
@@ -59,7 +59,7 @@ class ModelTraining:
         return image_paths
 
 
-    def preprocess_image(self, image_path, resize_shape=(28, 28)):
+    def preprocess_image(self, image_path, resize_shape=(25, 25)):
         # load the image, pre-process it and store it in data list
         image = cv2.imread(image_path)
         image = cv2.resize(image, resize_shape)

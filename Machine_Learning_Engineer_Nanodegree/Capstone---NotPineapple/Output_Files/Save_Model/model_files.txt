@@ -1,0 +1,9 @@
+NotPineapple_CustomConv_25x25.model
+NotPineapple_CustomConv_50x50.model
+NotPineapple_CustomConv_100x100.model
+NotPineapple_FullConn_25x25.model
+NotPineapple_FullConn_50x50.model
+NotPineapple_FullConn_100x100.model
+NotPineapple_LeNet_25x25.model
+NotPineapple_LeNet_50x50.model
+NotPineapple_LeNet_100x100.model

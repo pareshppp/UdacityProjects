@@ -189,13 +189,14 @@ We will see later that some our worst performing models give us an accuracy of r
 
 The images were taken from a clean dataset and the image selection was done in such a way that no class imbalance problem exists.
 
-The only steps taken for pre-processing are:
+The steps taken for pre-processing are:
 
-- Image Resizing - The images are resized into three different sizes before being fed to the models:
+- **Image Resizing** - The images are resized into three different sizes before being fed to the models:
   - 25x25
   - 50x50
   - 100x100 (original size)
-- Image Augmentation - The images are passed through the image augmentation module of Keras library before being fed to the model. The following modifications are done to the images during augmentation:
+- **Image Intensity Scaling** - The image intensities were scaled to range [0,1].
+- **Image Augmentation** - The images are passed through the image augmentation module of Keras library before being fed to the model. The following modifications are done to the images during augmentation:
   - rotation
   - width shift
   - height shift
@@ -205,24 +206,31 @@ The only steps taken for pre-processing are:
   - horizontal flip
   - vertical flip
   - filling
+- **One-Hot-Encode the Labels** - Pineapple and NotPineapple
 
 ### Implementation
 
+The implementation pipeline is shown in the below flowcharts [6].
 
+#### Training
 
+![Flowchart_Training](Report_Images/Flow_Training.svg)
 
+#### Testing - Single Image
 
-In this section, the process for which metrics, algorithms, and techniques that you implemented for the given data will need to be clearly documented. It should be abundantly clear how the implementation was carried out, and discussion should be made regarding any complications that occurred during this process. Questions to ask yourself when writing this section:
-- _Is it made clear how the algorithms and techniques were implemented with the given datasets or input data?_
-- _Were there any complications with the original metrics or techniques that required changing prior to acquiring a solution?_
-- _Was there any part of the coding process (e.g., writing complicated functions) that should be documented?_
+#### Testing - Full
+
+![Flowchart_Training](Report_Images/Flow_Testing.svg)
 
 ### Refinement
-In this section, you will need to discuss the process of improvement you made upon the algorithms and techniques you used in your implementation. For example, adjusting parameters for certain models to acquire improved solutions would fall under the refinement category. Your initial and final solutions should be reported, as well as any significant intermediate results as necessary. Questions to ask yourself when writing this section:
-- _Has an initial solution been found and clearly reported?_
-- _Is the process of improvement clearly documented, such as what techniques were used?_
-- _Are intermediate and final solutions clearly reported as the process is improved?_
 
+Different parameters were tuned to get the final results:
+
+- Epochs - Different number of epochs were tested - 20, 25, 30 & 35
+- Learning Rate - Different learning rates were tested - 1e-3, 1e-4, 1e-5
+- Batch Size - Different batch sizes were tested - 32, 64, 128, 256
+- Image Resize - Different image sizes were tested - 25, 28, 50, 64, 100
+- Model Layers - Different number of layers were tested in the models
 
 ## IV. Results
 _(approx. 2-3 pages)_
@@ -263,6 +271,7 @@ In this section, you will need to provide discussion as to how one aspect of the
 - _Were there algorithms or techniques you researched that you did not know how to implement, but would consider using if you knew how?_
 - _If you used your final solution as the new benchmark, do you think an even better solution exists?_
 
+-----------
 
 ## VI. References
 
@@ -270,7 +279,8 @@ In this section, you will need to provide discussion as to how one aspect of the
 [2] Wikipedia - Silicon Valley - <https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)>  
 [3] Adrian Rosebrock - <https://www.pyimagesearch.com/2017/12/11/image-classification-with-keras-and-deep-learning/>  
 [4] Kaggle - Fruits-360 dataset - <https://www.kaggle.com/moltean/fruits>  
-[5] Wikipedia - Convolutional Neural Networks - <https://en.wikipedia.org/wiki/Convolutional_neural_network>
+[5] Wikipedia - Convolutional Neural Networks - <https://en.wikipedia.org/wiki/Convolutional_neural_network>  
+[6] Drawings - <https://www.draw.io/>
 
 
 -----------
