@@ -51,10 +51,11 @@ class ModelTesting_SingleImage:
 
     def draw_label_on_image(self, orig, label):
         # draw the label on the image
-        output = imutils.resize(orig, width=400)
-        cv2.putText(output, label, (10, 25), \
+        output = imutils.resize(orig, width=250)
+        cv2.rectangle(output, (0,0), (250, 30), (200, 200, 200), -1)
+        cv2.putText(output, label, (10, 20), \
                     cv2.FONT_HERSHEY_SIMPLEX,\
-                    0.7, (0, 255, 0), 2)
+                    0.5, (30, 30, 220), 2)
         return output
 
 
@@ -84,23 +85,23 @@ if __name__ == '__main__':
     image = MT.preprocess_image(image, resize_shape=(args['resize'], args['resize']))
 
     # load the trained cnn model
-    print('[INFO] loading model...')
+    print('\n[INFO] loading model...\n')
     model = load_model(args['model'])
 
     # classify the input image and build the label
-    print('[INFO] classifying image...')
+    print('\n[INFO] classifying image...\n')
     label = MT.classify_image(image, clf_object)
 
     # draw the label on the image
-    print('[INFO] generating output...')
+    print('\n[INFO] generating output...\n')
     output = MT.draw_label_on_image(orig, label)
 
     # show/save the output image
-    print('[INFO] saving file...')
+    print('\n[INFO] saving file...\n')
     model_filename = re.split('\/|\.', args['model'])[-2]
 
     save_filename = re.split('\/|\.', args['image'])[-2]
     save_filename = 'Output_' + save_filename + '___' + model_filename + '.jpg'
     save_filename = 'Output_Files/Save_Output_Image_Prediction/' + save_filename
-    print('[INFO] writing file to ', save_filename)
+    print('\n[INFO] writing file to ', save_filename, '\n')
     cv2.imwrite(save_filename, output)

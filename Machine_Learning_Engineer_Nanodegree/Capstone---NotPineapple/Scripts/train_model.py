@@ -177,7 +177,7 @@ if __name__ == '__main__':
     # create class object
     MT = ModelTraining(epochs=epochs, lr=lr, batch_size=batch_size, seed=seed)
 
-    print('[INFO] loading images...')
+    print('\n[INFO] loading images...\n')
     # print(args['dataset'])
 
     # grab the image paths and randomly shuffle them
@@ -186,6 +186,7 @@ if __name__ == '__main__':
     random.shuffle(image_paths)
 
     # loop over all image_paths
+    print('\n[INFO] pre-processing images...\n')
     for image_path in image_paths:
         # load the image, pre-process it and store it in data list
         preprocessed_image = MT.preprocess_image(image_path, \
@@ -212,13 +213,13 @@ if __name__ == '__main__':
 
     
     # initialize and compile the model
-    print('[INFO] initializing model...')
+    print('\n[INFO] initializing model...\n')
 
     # model = MT.initialize_model(architecture=args['architecture'], \
     #                 width=args['resize'], height=args['resize'], depth=3, nclasses=2)
 
     if args['architecture'] == 'LeNet':
-        print('[INFO] using LeNet architecture...')
+        print('\n[INFO] using LeNet architecture...\n')
         model = LeNet.build_model(width=args['resize'], height=args['resize'], \
                                   depth=3, nclasses=2)
         # save model visualization
@@ -226,7 +227,7 @@ if __name__ == '__main__':
                    show_layer_names=True, show_shapes=True)
 
     elif args['architecture'] == 'FullConn':
-        print('[INFO] using FullConn architecture...')
+        print('\n[INFO] using FullConn architecture...\n')
         model = FullConn.build_model(width=args['resize'], height=args['resize'], \
                                      depth=3, nclasses=2)
         # save model visualization
@@ -234,7 +235,7 @@ if __name__ == '__main__':
                    show_layer_names=True, show_shapes=True)
         
     elif args['architecture'] == 'CustomConv':
-        print('[INFO] using CustomConv architecture...')
+        print('\n[INFO] using CustomConv architecture...\n')
         model = CustomConv.build_model(width=args['resize'], height=args['resize'], \
                                        depth=3, nclasses=2)
         # save model visualization
@@ -242,7 +243,7 @@ if __name__ == '__main__':
                    show_layer_names=True, show_shapes=True)
 
     else:
-        print('[INFO] using LeNet architecture...')
+        print('\n[INFO] using LeNet architecture...\n')
         model = LeNet.build_model(width=28, height=28, depth=3, nclasses=2)
         # save model visualization
         plot_model(model, to_file='Output_Files/Save_Plot/LeNet.png', \
@@ -252,26 +253,26 @@ if __name__ == '__main__':
     # model = LeNet.build_model(width=28, height=28, depth=3, nclasses=2)
 
 
-    print('[INFO] initializing optimizer...')
+    print('\n[INFO] initializing optimizer...\n')
     optm = Adam(lr=lr, decay=lr/epochs)
 
-    print('[INFO] compiling model...')
+    print('\n[INFO] compiling model...\n')
     model.compile(loss='binary_crossentropy', optimizer=optm, metrics=['accuracy'])
 
 
-    print('[INFO] model summary...')
+    print('\n[INFO] model summary...\n')
     print(model.summary())
 
 
     # train the network
-    print('[INFO] training model...')
+    print('\n[INFO] training model...\n')
 
     hist, model = MT.fit_model(model, augmentation, x_train, x_test, y_train, y_test)
-    print('[DONE]')
+    print('\n[DONE]\n')
 
 
     # save model to disk
-    print('[INFO] saving model...')
+    print('\n[INFO] saving model...\n')
     save_filename = args['model'] + '_' + args['architecture'] + \
                                     '_' + str(args['resize']) + \
                                     'x' + str(args['resize'])
@@ -281,7 +282,7 @@ if __name__ == '__main__':
     model.save(save_filename)
 
     # plot the training loss and accuracy
-    print('[INFO] saving plot...')
+    print('\n[INFO] saving plot...\n')
     plot_save_filename = args['model'] + '_' + args['architecture'] + \
                                          '_' + str(args['resize']) + \
                                          'x' + str(args['resize'])

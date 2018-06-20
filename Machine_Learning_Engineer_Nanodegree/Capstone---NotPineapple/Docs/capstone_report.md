@@ -214,11 +214,19 @@ The implementation pipeline is shown in the below flowcharts [6].
 
 #### Training
 
+The steps followed during training the models are shown below.
+
 ![Flowchart_Training](Report_Images/Flow_Training.svg)
 
 #### Testing - Single Image
 
+The steps followed during testing a single image are shown below.
+
+![Flowchart_Training](Report_Images/Flow_Testing_Single.svg)
+
 #### Testing - Full
+
+The steps followed during testing all images are shown below.
 
 ![Flowchart_Training](Report_Images/Flow_Testing.svg)
 
@@ -233,24 +241,48 @@ Different parameters were tuned to get the final results:
 - Model Layers - Different number of layers were tested in the models
 
 ## IV. Results
-_(approx. 2-3 pages)_
 
 ### Model Evaluation and Validation
-In this section, the final model and any supporting qualities should be evaluated in detail. It should be clear how the final model was derived and why this model was chosen. In addition, some type of analysis should be used to validate the robustness of this model and its solution, such as manipulating the input data or environment to see how the model’s solution is affected (this is called sensitivity analysis). Questions to ask yourself when writing this section:
-- _Is the final model reasonable and aligning with solution expectations? Are the final parameters of the model appropriate?_
-- _Has the final model been tested with various inputs to evaluate whether the model generalizes well to unseen data?_
-- _Is the model robust enough for the problem? Do small perturbations (changes) in training data or the input space greatly affect the results?_
-- _Can results found from the model be trusted?_
+
+The three models for all three sizes and corresponding accuracy values are as follows:
+
+| index | model_name                      | testing_accuracy | architecture | resize  |
+|-------|---------------------------------|------------------|--------------|---------|
+| 0     | NotPineapple_LeNet_25x25        | 0.861446         | LeNet        | 25x25   |
+| 1     | NotPineapple_LeNet_50x50        | 0.954819         | LeNet        | 50x50   |
+| 2     | NotPineapple_LeNet_100x100      | 1.000000         | LeNet        | 100x100 |
+| 3     | NotPineapple_FullConn_25x25     | 0.686747         | FullConn     | 25x25   |
+| 4     | NotPineapple_FullConn_50x50     | 0.500000         | FullConn     | 50x50   |
+| 5     | NotPineapple_FullConn_100x100   | 0.490964         | FullConn     | 100x100 |
+| 6     | NotPineapple_CustomConv_25x25   | 0.722892         | CustomConv   | 25x25   |
+| 7     | NotPineapple_CustomConv_50x50   | 0.804217         | CustomConv   | 50x50   |
+| 8     | NotPineapple_CustomConv_100x100 | 0.867470         | CustomConv   | 100x100 |
+
+![Accuracy_Plot](Report_Images/Accuracy_Comparision_Plot.png)
+
+Here we can see that for all three image sizes - 25x25, 50x50 & 100x100, the LeNet architecture models have the best accuracy, followed by CustomConv. This is the expected output considering the fact that LeNet architecture is the most complex of the three architectures.
+
+This can also seen the in below single image outputs:
+
+#### FullConn - 25x25, 50x50, 100x100
+
+![Output_Images1](Report_Images/Output_Grape_NotPineapple_FullConn_25x25.jpg)
+![Output_Images2](Report_Images/Output_Grape_NotPineapple_FullConn_50x50.jpg)
+![Output_Images3](Report_Images/Output_Grape_NotPineapple_FullConn_100x100.jpg)
 
 ### Justification
-In this section, your model’s final solution and its results should be compared to the benchmark you established earlier in the project using some type of statistical analysis. You should also justify whether these results and the solution are significant enough to have solved the problem posed in the project. Questions to ask yourself when writing this section:
-- _Are the final results found stronger than the benchmark result reported earlier?_
-- _Have you thoroughly analyzed and discussed the final solution?_
-- _Is the final solution significant enough to have solved the problem?_
 
+The benchmark model for this project was random selection between two labels. Thus the benchmark accuracy was 50%.
+
+In the above plot, the horizontal line represents the benchmark. As we can see, the two convolutional neural networks - LeNet and CustomConv, consistently beat the benchmark by sufficient margins. But the only time FullConn manages to beat the benchmark is when the image size is smallest (25x25).
+
+This is the expected result. Since we are working with image data, convolutional neural networks vastly outperform fully connected neural networks (especially as image size increases). The only time Fully connected networks performs anywhere nearly as good as convnets is for the smallest image size(25x25). This can be explaind by the relaatively small number of input data points (625). But as the image size increases, the fully connected network fails to even beat the benchmark model of random selection.
+
+We can also see that the more complex LeNet architecture model consistently outperforms the less complex CustomConv architecture model. While more complex models may not always lead to better results, in the context of this project, it does.
+
+One thing we have not taken into consideration during this project is the time and resources needed to run the models. Sometimes, even when the more complex model can produce better results, it may not be used because it takes too much time or larger amounts of resources to compute.
 
 ## V. Conclusion
-_(approx. 1-2 pages)_
 
 ### Free-Form Visualization
 In this section, you will need to provide some form of visualization that emphasizes an important quality about the project. It is much more free-form, but should reasonably support a significant result or characteristic about the problem that you want to discuss. Questions to ask yourself when writing this section:

@@ -85,7 +85,7 @@ if __name__ == '__main__':
     MT = ModelTesting()
 
     # load the trained cnn model
-    print('[INFO] loading model...')
+    print('\n[INFO] loading model...\n')
     model = load_model(args['model'])
 
     # grab the image paths
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     random.shuffle(image_paths)
 
     # loop over all image_paths and get prediction
-    print('[INFO] processing and classifying images...')
+    print('\n[INFO] processing and classifying images...\n')
     for image_path in image_paths:
         # load the image, pre-process it and store the image_path in data list
         preprocessed_image = MT.preprocess_image(image_path,
@@ -110,7 +110,7 @@ if __name__ == '__main__':
         extracted_label = MT.extract_label_from_image_path(image_path, clf_object)
         true_labels.append(extracted_label)
 
-    print('[DONE]')
+    print('\n[DONE]\n')
 
     # compare predictions with true labels
     prediction_df['image_path'] = np.array(image_paths)
@@ -124,12 +124,14 @@ if __name__ == '__main__':
     model_name = re.split('\/|\.', args['model'])[-2]
     pred_filename = 'Output_Files/Save_Output_Accuracy/' + model_name + '_predictions.csv'
 
-    print('[INFO] saving prediction data to file ', pred_filename)
+    print('\n[INFO] saving prediction data to file ', pred_filename, '\n')
     prediction_df.to_csv(pred_filename)
 
     # calculate accuracy
     accuracy = sum(prediction_df['label_match']) / len(prediction_df['label_match'])
+    print('\n+++++++++++++++++++++++++++++++++++++++++++++++++')
     print('[OUTPUT] Testing Accuracy = {}'.format(accuracy))
+    print('+++++++++++++++++++++++++++++++++++++++++++++++++\n')
 
     # store accuracy data
     accuracy_df['model_name'] = pd.Series(model_name)
@@ -137,7 +139,7 @@ if __name__ == '__main__':
 
     # write accuracy data to file
     acc_filename = 'Output_Files/Save_Output_Accuracy/Pineapple-NotPineapple_accuracy.csv'
-    print('[INFO] saving accuracy data to file ', acc_filename)
+    print('\n[INFO] saving accuracy data to file ', acc_filename, '\n')
 
     # if file exists then append, else write
     if os.path.exists(acc_filename):
