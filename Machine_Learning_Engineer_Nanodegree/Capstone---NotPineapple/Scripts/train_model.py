@@ -9,6 +9,7 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+np.random.seed(22)
 import cv2
 from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing.image import img_to_array
@@ -126,7 +127,8 @@ class ModelTraining:
                             validation_data=(x_test, y_test),
                             steps_per_epoch=len(x_train)//self.batch_size,
                             epochs=self.epochs, 
-                            verbose=1)
+                            verbose=1,
+                            shuffle=False)
         return hist, model
 
 

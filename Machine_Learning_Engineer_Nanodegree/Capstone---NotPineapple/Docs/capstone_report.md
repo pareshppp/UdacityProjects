@@ -76,7 +76,7 @@ Thus we have 9 combinations of **input image size** X **model type** for which w
 We have two types of output:
 
 1. Single-image output - One output image with the prediction accuracy.
-2. Full testing output - A csv file that contains the accuracy data for all the models which ran over all tesing images.
+2. Full testing output - A csv file that contains the accuracy data for all the models which ran over all testing images.
 
 ### Metrics
 
@@ -125,7 +125,7 @@ Samples of the NotPineapple class:
 ![NotPineapple-4](Report_Images/Litchi-238_100.jpg)
 ![NotPineapple-5](Report_Images/Raspberry-319_100.jpg)
 
-There are a total of 60 different fruits including Pineapple (Different varities of the same Fruit have been classfied as a separate fruit).
+There are a total of 60 different fruits including Pineapple (Different varieties of the same Fruit have been classified as a separate fruit).
 
 ### Exploratory Visualization
 
@@ -175,11 +175,11 @@ It has shape - (Batch Size, Image Width, Image Height, Depth - Number of Filters
 
 **Flatten** - This layer simply flattens the input tensor into a single dimension (2 dimensions if batch size is included).
 
-**Fully Connected / Dense Layer** - As mentioned before, a fully connected layer is connected to all nodes of previes layer.
+**Fully Connected / Dense Layer** - As mentioned before, a fully connected layer is connected to all nodes of previous layer.
 
 ### Benchmark
 
-We have used Predicion Accuracy as our metric. Since this is a binary classification problem, just random selection gives us 50% accuracy. So we will be using **50% Prediction Accuracy** as our benchmark to compare the different models.
+We have used Prediction Accuracy as our metric. Since this is a binary classification problem, just random selection gives us 50% accuracy. So we will be using **50% Prediction Accuracy** as our benchmark to compare the different models.
 
 We will see later that some our worst performing models give us an accuracy of roughly 50%.
 
@@ -246,17 +246,17 @@ Different parameters were tuned to get the final results:
 
 The three models for all three sizes and corresponding accuracy values are as follows:
 
-| index | model_name                      | testing_accuracy | architecture | resize  |
-|-------|---------------------------------|------------------|--------------|---------|
-| 0     | NotPineapple_LeNet_25x25        | 0.861446         | LeNet        | 25x25   |
-| 1     | NotPineapple_LeNet_50x50        | 0.954819         | LeNet        | 50x50   |
-| 2     | NotPineapple_LeNet_100x100      | 1.000000         | LeNet        | 100x100 |
-| 3     | NotPineapple_FullConn_25x25     | 0.686747         | FullConn     | 25x25   |
-| 4     | NotPineapple_FullConn_50x50     | 0.500000         | FullConn     | 50x50   |
-| 5     | NotPineapple_FullConn_100x100   | 0.490964         | FullConn     | 100x100 |
-| 6     | NotPineapple_CustomConv_25x25   | 0.722892         | CustomConv   | 25x25   |
-| 7     | NotPineapple_CustomConv_50x50   | 0.804217         | CustomConv   | 50x50   |
-| 8     | NotPineapple_CustomConv_100x100 | 0.867470         | CustomConv   | 100x100 |
+| index | model_name                      | testing_accuracy | architecture | resize  | pixels |
+|-------|---------------------------------|------------------|--------------|---------|--------|
+| 0     | NotPineapple_LeNet_25x25        | 0.861446         | LeNet        | 25x25   | 25     |
+| 1     | NotPineapple_FullConn_25x25     | 0.533133         | FullConn     | 25x25   | 25     |
+| 2     | NotPineapple_CustomConv_25x25   | 0.656627         | CustomConv   | 25x25   | 25     |
+| 3     | NotPineapple_LeNet_50x50        | 0.966867         | LeNet        | 50x50   | 50     |
+| 4     | NotPineapple_FullConn_50x50     | 0.484940         | FullConn     | 50x50   | 50     |
+| 5     | NotPineapple_CustomConv_50x50   | 0.780120         | CustomConv   | 50x50   | 50     |
+| 6     | NotPineapple_LeNet_100x100      | 0.978916         | LeNet        | 100x100 | 100    |
+| 7     | NotPineapple_FullConn_100x100   | 0.463855         | FullConn     | 100x100 | 100    |
+| 8     | NotPineapple_CustomConv_100x100 | 0.680723         | CustomConv   | 100x100 | 100    |
 
 ![Accuracy_Plot](Report_Images/Accuracy_Comparision_Plot.png)
 
@@ -266,9 +266,33 @@ This can also seen the in below single image outputs:
 
 #### FullConn - 25x25, 50x50, 100x100
 
-![Output_Images1](Report_Images/Output_Grape_NotPineapple_FullConn_25x25.jpg)
-![Output_Images2](Report_Images/Output_Grape_NotPineapple_FullConn_50x50.jpg)
-![Output_Images3](Report_Images/Output_Grape_NotPineapple_FullConn_100x100.jpg)
+![Output_Images1a](Report_Images/Output_Pineapple-3_100___NotPineapple_FullConn_25x25.jpg)
+![Output_Images2a](Report_Images/Output_Pineapple-3_100___NotPineapple_FullConn_50x50.jpg)
+![Output_Images3a](Report_Images/Output_Pineapple-3_100___NotPineapple_FullConn_100x100.jpg)
+
+![Output_Images1b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_FullConn_25x25.jpg)
+![Output_Images2b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_FullConn_50x50.jpg)
+![Output_Images3b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_FullConn_100x100.jpg)
+
+#### CustomConv - 25x25, 50x50, 100x100
+
+![Output_Images4a](Report_Images/Output_Pineapple-3_100___NotPineapple_CustomConv_25x25.jpg)
+![Output_Images5a](Report_Images/Output_Pineapple-3_100___NotPineapple_CustomConv_50x50.jpg)
+![Output_Images6a](Report_Images/Output_Pineapple-3_100___NotPineapple_CustomConv_100x100.jpg)
+
+![Output_Images4b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_CustomConv_25x25.jpg)
+![Output_Images5b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_CustomConv_50x50.jpg)
+![Output_Images6b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_CustomConv_100x100.jpg)
+
+#### LeNet - 25x25, 50x50, 100x100
+
+![Output_Images7a](Report_Images/Output_Pineapple-3_100___NotPineapple_LeNet_25x25.jpg)
+![Output_Images8a](Report_Images/Output_Pineapple-3_100___NotPineapple_LeNet_50x50.jpg)
+![Output_Images9a](Report_Images/Output_Pineapple-3_100___NotPineapple_LeNet_100x100.jpg)
+
+![Output_Images7b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_LeNet_25x25.jpg)
+![Output_Images8b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_LeNet_50x50.jpg)
+![Output_Images9b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_LeNet_100x100.jpg)
 
 ### Justification
 
@@ -276,7 +300,7 @@ The benchmark model for this project was random selection between two labels. Th
 
 In the above plot, the horizontal line represents the benchmark. As we can see, the two convolutional neural networks - LeNet and CustomConv, consistently beat the benchmark by sufficient margins. But the only time FullConn manages to beat the benchmark is when the image size is smallest (25x25).
 
-This is the expected result. Since we are working with image data, convolutional neural networks vastly outperform fully connected neural networks (especially as image size increases). The only time Fully connected networks performs anywhere nearly as good as convnets is for the smallest image size(25x25). This can be explaind by the relaatively small number of input data points (625). But as the image size increases, the fully connected network fails to even beat the benchmark model of random selection.
+This is the expected result. Since we are working with image data, convolutional neural networks vastly outperform fully connected neural networks (especially as image size increases). The only time Fully connected networks performs anywhere nearly as good as convnets is for the smallest image size(25x25). This can be explained by the relatively small number of input data points (625). But as the image size increases, the fully connected network fails to even beat the benchmark model of random selection.
 
 We can also see that the more complex LeNet architecture model consistently outperforms the less complex CustomConv architecture model. While more complex models may not always lead to better results, in the context of this project, it does.
 
@@ -285,25 +309,57 @@ One thing we have not taken into consideration during this project is the time a
 ## V. Conclusion
 
 ### Free-Form Visualization
-In this section, you will need to provide some form of visualization that emphasizes an important quality about the project. It is much more free-form, but should reasonably support a significant result or characteristic about the problem that you want to discuss. Questions to ask yourself when writing this section:
-- _Have you visualized a relevant or important quality about the problem, dataset, input data, or results?_
-- _Is the visualization thoroughly analyzed and discussed?_
-- _If a plot is provided, are the axes, title, and datum clearly defined?_
+
+The plots below show the following for the model training:
+
+- Training Loss
+- Validation Loss
+- Training Accuracy
+- Validation Accuracy
+
+#### FullConn
+
+![Free_Form_Plot1](Report_Images/NotPineapple_FullConn_25x25.png)
+![Free_Form_Plot1](Report_Images/NotPineapple_FullConn_50x50.png)
+![Free_Form_Plot1](Report_Images/NotPineapple_FullConn_100x100.png)
+
+For FullConn we can see that only 100x100 image has some kind of trend. The other two are mostly random.
+
+#### CustomConv
+
+![Free_Form_Plot1](Report_Images/NotPineapple_CustomConv_25x25.png)
+![Free_Form_Plot1](Report_Images/NotPineapple_CustomConv_50x50.png)
+![Free_Form_Plot1](Report_Images/NotPineapple_CustomConv_100x100.png)
+
+For CustomConv the trends are more visible in al three. Training Loss and Validation Loss are constantly decreasing. And Training Accuracy and Validation Accuracy are constantly increasing. But we don't see any pattern between the three.
+
+#### LeNet
+
+![Free_Form_Plot1](Report_Images/NotPineapple_LeNet_25x25.png)
+![Free_Form_Plot1](Report_Images/NotPineapple_LeNet_50x50.png)
+![Free_Form_Plot1](Report_Images/NotPineapple_LeNet_100x100.png)
+
+For LeNet the trends are even more obvious. And we also see an interesting pattern across image sizes -- as the image size increases, the model converges sooner (less number of epochs).
+
+This pattern may be because as the image size decreases, the model finds it harder to detect the image features that differentiate the fruits from each other.
 
 ### Reflection
-In this section, you will summarize the entire end-to-end problem solution and discuss one or two particular aspects of the project you found interesting or difficult. You are expected to reflect on the project as a whole to show that you have a firm understanding of the entire process employed in your work. Questions to ask yourself when writing this section:
-- _Have you thoroughly summarized the entire process you used for this project?_
-- _Were there any interesting aspects of the project?_
-- _Were there any difficult aspects of the project?_
-- _Does the final model and solution fit your expectations for the problem, and should it be used in a general setting to solve these types of problems?_
+
+In this project, the objective was to take images of multiple fruits and determine if any given image was a Pineapple or not. We trained nine different models -- three architectures - FullConn, CustomConv & LeNet, each with three different image sizes - 25x25, 50x50 & 100x100. Then we ran the models over a set of testing images and calculated the accuracy score for each model. By comparing the accuracies against the benchmark and against each other we determine that LeNet architecture performs best for all three image sizes.
+
+The interesting aspect of this project is that, with a few small changes, we can use this project to classify any two image classes. The project can also be extended for multi-class classification.
+
+The difficult part of the project was learning how to divide the scripts into classes and functions and execute parameterized scripts. Another difficulty was finding the right parameters to get the correct output.
 
 ### Improvement
-In this section, you will need to provide discussion as to how one aspect of the implementation you designed could be improved. As an example, consider ways your implementation can be made more general, and what would need to be modified. You do not need to make this improvement, but the potential solutions resulting from these changes are considered and compared/contrasted to your current solution. Questions to ask yourself when writing this section:
-- _Are there further improvements that could be made on the algorithms or techniques you used in this project?_
-- _Were there algorithms or techniques you researched that you did not know how to implement, but would consider using if you knew how?_
-- _If you used your final solution as the new benchmark, do you think an even better solution exists?_
 
------------
+The following improvements can be made to the project:
+
+1. The project was created as a binary classification project. We can use the complete original fruits-360 dataset to do a multi-class classification instead. But, in that case, we would need better and more complex models as out of three models used here, only LeNet might give decent results.
+
+2. The current project takes ~10 minutes to run on Nvidia 1050Ti GPU. As the project was created in a modular and parameterized fashion, a lot of time is lost in initializing the GPU modules for all 9 different model, each having a training and 2 testing scripts. This time may be reduced if the project is re-structured by removing the parameters and hard-coding the parameter values in the script suh that the number of times GPU is initialized gets reduced.
+
+--------------------------------
 
 ## VI. References
 
@@ -314,15 +370,4 @@ In this section, you will need to provide discussion as to how one aspect of the
 [5] Wikipedia - Convolutional Neural Networks - <https://en.wikipedia.org/wiki/Convolutional_neural_network>  
 [6] Drawings - <https://www.draw.io/>
 
-
------------
-
-**Before submitting, ask yourself. . .**
-
-- Does the project report you’ve written follow a well-organized structure similar to that of the project template?
-- Is each section (particularly **Analysis** and **Methodology**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification?
-- Would the intended audience of your project be able to understand your analysis, methods, and results?
-- Have you properly proof-read your project report to assure there are minimal grammatical and spelling mistakes?
-- Are all the resources used for this project correctly cited and referenced?
-- Is the code that implements your solution easily readable and properly commented?
-- Does the code execute without error and produce results similar to those reported?
+--------------------------------

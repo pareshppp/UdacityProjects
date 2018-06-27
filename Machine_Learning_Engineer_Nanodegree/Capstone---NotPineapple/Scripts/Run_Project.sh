@@ -25,7 +25,8 @@ bash Scripts/LeNet-25.sh
 echo 
 echo ====================================================
 echo [INFO] End LeNet-25...
-echo Completed 1/9
+echo ====================================================
+echo [INFO] Completed [1/9]
 echo ====================================================
 echo 
 
@@ -42,7 +43,8 @@ bash Scripts/LeNet-50.sh
 echo 
 echo ====================================================
 echo [INFO] End LeNet-50...
-echo Completed 2/9
+echo ====================================================
+echo [INFO] Completed [2/9]
 echo ====================================================
 echo
 
@@ -59,7 +61,8 @@ bash Scripts/LeNet-100.sh
 echo
 echo ====================================================
 echo [INFO] End LeNet-100...
-echo Completed 3/9
+echo ====================================================
+echo [INFO] Completed [3/9]
 echo ====================================================
 echo
 
@@ -78,7 +81,8 @@ bash Scripts/FullConn-25.sh
 echo
 echo ====================================================
 echo [INFO] End FullConn-25...
-echo Completed 4/9
+echo ====================================================
+echo [INFO] Completed [4/9]
 echo ====================================================
 echo
 
@@ -95,7 +99,8 @@ bash Scripts/FullConn-50.sh
 echo
 echo ====================================================
 echo [INFO] End FullConn-50...
-echo Completed 5/9
+echo ====================================================
+echo [INFO] Completed [5/9]
 echo ====================================================
 echo
 
@@ -112,7 +117,8 @@ bash Scripts/FullConn-100.sh
 echo
 echo ====================================================
 echo [INFO] End FullConn-100...
-echo Completed 6/9
+echo ====================================================
+echo [INFO] Completed [6/9]
 echo ====================================================
 echo
 
@@ -131,7 +137,8 @@ bash Scripts/CustomConv-25.sh
 echo
 echo ====================================================
 echo [INFO] End CustomConv-25...
-echo Completed 7/9
+echo ====================================================
+echo [INFO] Completed [7/9]
 echo ====================================================
 echo
 
@@ -148,7 +155,8 @@ bash Scripts/CustomConv-50.sh
 echo
 echo ====================================================
 echo [INFO] End CustomConv-50...
-echo Completed 8/9
+echo ====================================================
+echo [INFO] Completed [8/9]
 echo ====================================================
 echo
 
@@ -165,7 +173,8 @@ bash Scripts/CustomConv-100.sh
 echo
 echo ====================================================
 echo [INFO] End CustomConv-100...
-echo Completed 9/9
+echo ====================================================
+echo [INFO] Completed [9/9]
 echo ====================================================
 echo
 
