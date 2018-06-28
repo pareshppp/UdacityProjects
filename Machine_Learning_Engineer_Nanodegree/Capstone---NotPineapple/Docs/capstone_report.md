@@ -357,7 +357,7 @@ The following improvements can be made to the project:
 
 1. The project was created as a binary classification project. We can use the complete original fruits-360 dataset to do a multi-class classification instead. But, in that case, we would need better and more complex models as out of three models used here, only LeNet might give decent results.
 
-2. The current project takes ~10 minutes to run on Nvidia 1050Ti GPU. As the project was created in a modular and parameterized fashion, a lot of time is lost in initializing the GPU modules for all 9 different model, each having a training and 2 testing scripts. This time may be reduced if the project is re-structured by removing the parameters and hard-coding the parameter values in the script suh that the number of times GPU is initialized gets reduced.
+2. The current project takes ~10 minutes to run on Nvidia 1050Ti GPU. As the project was created in a modular and parameterized fashion, a lot of time is lost in initializing the GPU modules for all 9 different model, each having a training and 2 testing scripts. This time may be reduced if the project is re-structured by removing the parameters and hard-coding the parameter values in the script so that the number of times GPU is initialized gets reduced.
 
 --------------------------------
 
