@@ -230,6 +230,8 @@ The steps followed during testing all images are shown below.
 
 ![Flowchart_Training](Report_Images/Flow_Testing.svg)
 
+**Difficulty Faced** - One of the biggest problems faced during the project implementation was extracting the smaller dataset out of the original fruits-360 dataset. It took a lot of research on the internet to get the correct commands to create the proper directory structure, rename the files, randomly select fruits for the NotPineapple class.
+
 ### Refinement
 
 Different parameters were tuned to get the final results:
@@ -239,6 +241,17 @@ Different parameters were tuned to get the final results:
 - Batch Size - Different batch sizes were tested - 32, 64, 128, 256
 - Image Resize - Different image sizes were tested - 25, 28, 50, 64, 100
 - Model Layers - Different number of layers were tested in the models
+
+The final models selected has the following parameters:
+
+- Epochs - 35
+- Learning Rate - 1e-4
+- Batch Size - 32
+- Image Resize - 25, 50, 100
+- Model Layers
+  - FullConn - FLATTEN -> 3 * (FC -> RELU) -> SOFTMAX
+  - CustomConv - CONV -> RELU -> FC -> RELU -> SOFTMAX
+  - LeNet - 2 * (CONV -> RELU -> MAXPOOL) -> FC -> RELU -> SOFTMAX
 
 ## IV. Results
 
@@ -293,6 +306,10 @@ This can also seen the in below single image outputs:
 ![Output_Images7b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_LeNet_25x25.jpg)
 ![Output_Images8b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_LeNet_50x50.jpg)
 ![Output_Images9b](Report_Images/Output_Grape_White_2-r_61_100___NotPineapple_LeNet_100x100.jpg)
+
+**Model Robustness** - We have to keep in mind here that the above plot and output images are based on a single run of the project. This was done to keep the project simple and the project run time small. The project has been run multiple times during testing and the accuracy values and accuracy plot remain mostly unchanged from one run to another. To make the project more robust, we can consider techniques such as k-fold cross-validation.
+
+The only time there is a significant variation in the results, is when we use a different random seed for Numpy. Since, neural networks assign weights to nodes randomly, each run produces different results. Ideally, instead of using a random seed, we should run the project over multiple iterations and take the average results. But using this method for this project would make the run time extremely large.
 
 ### Justification
 
@@ -349,7 +366,11 @@ In this project, the objective was to take images of multiple fruits and determi
 
 The interesting aspect of this project is that, with a few small changes, we can use this project to classify any two image classes. The project can also be extended for multi-class classification.
 
-The difficult part of the project was learning how to divide the scripts into classes and functions and execute parameterized scripts. Another difficulty was finding the right parameters to get the correct output.
+The difficulties faced during the the project are listed below:
+
+- Learning how to divide the scripts into classes and functions and execute parameterized scripts.
+- Finding the right parameters to get the correct output. Multiple tests were run to the get the final parameters.
+- Extracting the smaller dataset out of the original fruits-360 dataset. It took a lot of research on the internet to get the correct commands to create the proper directory structure, rename the files & randomly select fruits for the NotPineapple class.
 
 ### Improvement
 
