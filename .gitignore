@@ -14,3 +14,6 @@ Training_Images/
 Testing_Images/
 *.model
 proposal.zip
+Style-Transfer/
+Cat_Dog_data/
+checkpoint.pth
