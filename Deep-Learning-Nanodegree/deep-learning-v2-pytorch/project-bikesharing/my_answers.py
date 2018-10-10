@@ -20,7 +20,7 @@ class NeuralNetwork(object):
         #
         # Note: in Python, you can define a function with a lambda expression,
         # as shown below.
-        self.activation_function = lambda x : 1.0 / (1.0 + np.exp(-x))  # Replace 0 with your sigmoid calculation.
+        self.activation_function = lambda x : 1 / (1 + np.exp(-x))  # Replace 0 with your sigmoid calculation.
         
         ### If the lambda code above is not something you're familiar with,
         # You can uncomment out the following three lines and put your 
@@ -110,10 +110,18 @@ class NeuralNetwork(object):
         
         hidden_error_term = hidden_error * hidden_outputs * (1 - hidden_outputs) # error * sigmoid * (1 - sigmoid) || (1, 2) * (1, 2) * (1, 2) = (1, 2)
         
+        # delta_weights_i_h.shape = (3, 1) zeros
+        # delta_weights_h_o.shape = (2, 1) zeros
+        # X[:, None].shape = (3, 1)
+        # hidden_error_term.shape = (2, )
+        
+        # hidden_outputs[:, None].shape = (2, 1)
+        # output_error_term.shape = (1,)
+        
         # Weight step (input to hidden)
-        delta_weights_i_h += hidden_error_term * X[:, None] 
+        delta_weights_i_h += hidden_error_term * X[:, None]  # (2, ) * (3, 1) = (3, 2)
         # Weight step (hidden to output)
-        delta_weights_h_o += output_error_term * hidden_outputs[:, None]
+        delta_weights_h_o += output_error_term * hidden_outputs[:, None] # (1,) * (2, 1) = (2, 1)
         return delta_weights_i_h, delta_weights_h_o
 
     def update_weights(self, delta_weights_i_h, delta_weights_h_o, n_records):
@@ -152,7 +160,7 @@ class NeuralNetwork(object):
 #########################################################
 # Set your hyperparameters here
 ##########################################################
-iterations = 500
-learning_rate = 0.05
-hidden_nodes = 3
+iterations = 3000
+learning_rate = 1
+hidden_nodes = 15
 output_nodes = 1

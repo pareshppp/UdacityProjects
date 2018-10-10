@@ -14,6 +14,7 @@ Training_Images/
 Testing_Images/
 *.model
 proposal.zip
-Style-Transfer/
+fast-style-transfer/
 Cat_Dog_data/
 checkpoint.pth
+mnist-mlp/data/
