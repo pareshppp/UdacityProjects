@@ -4,3 +4,6 @@ dogImages/
 dogImages.zip
 lfw/
 lfw.zip
+dog_app_copy.ipynb
+model_scratch.pt
+model_transfer.pt
