@@ -1,0 +1,32 @@
+#### Basic Skip-Gram Model
+- Create a list of all unique words in the corpus.
+- Remove punctuations.
+- Only keep words that occur at least five times.
+- Sort the words based on their frequency of occurence with the most frequen word having index 0.
+- Turn the sorted list into two dictionaries: *vocab_to_int*, *int_to_vocab*, where *vocab* is each word in the sorted list and *int* is the corresponding frequency of occurence.
+- Convert the corpus into a list of words in their respective numerical forms using vocab_to_int.
+- Reduce the number of noisy words (stopwords) using Mikolov Subsampling.
+- Create bacthes of inputs and labels, where:
+ - input - input word in numerical form repeated to size window_size
+ - label - list of words that fall within the context window of the input word. Length = window_size
+- So, we have a one-to-one mapping of input to label words where input is the input word and label is one of the words from the context window.
+- Same input words is repeated for each word/label in target context window. 
+- Embedding layer is a fully connected layer of size n_vocab * embedding_dim.
+- Embedding dimension is the number of weights (dimensions) used to represent each word vector.
+- Instead of creating a one-hot highly-sparse-matrix of vocab words and then multiplying with hidden layer, we use the embedding layer as a lookup table where each weight vector (row) represents a word in the vector space. This reduces overall computation and time.
+- Embedding layer is connected to output layer using fully connected network.
+- Outputs of SkipGram model are softmax probabilities of all unique words in vocab based on input word. 
+- The log softmax values represent the probabilities of each word in the vocab being inside the context window of the input word.
+- The words predicted to be in the context window will, eventually, have higher softmax probability than other words.
+- This output list of softmax probabilities is compared with the target word value.
+- Here target is a single word for each input word.
+- Then Output and target are compared using NLLLoss.
+- Error is backpropagated and Embedding layer weights are adjusted to take the correct context word_vectors closer to the input word_vector in the vector space and vice versa.
+
+#### Negative Sampling Skip Gram Model
+- For every input word output Softmax is calculated and weights are modified for all words in vocab even though there is only one correct target value.
+- So, instead of modifying all weights, only the correct target's weight is updated along with a few other randomly chosen word weights (Noise words).
+- The first Embedding layer maps input word to hidden layer.
+- Create a second Embedding layer to map the hidden layer to output word.
+- Create a custom Loss function that only cares about the true ouput and a small subset of noise outputs.
+- Use a Uniform weight distribution scaled for word frequencies.
