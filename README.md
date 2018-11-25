@@ -6,7 +6,7 @@ All my projects from Udacity Nanodegrees:
 
 ### Image Classification
 
-- [Dog Breed Classification - PyTorch](https://github.com/pareshppp/UdacityProjects/tree/master/Deep-Learning-Nanodegree/deep-learning-v2-pytorch/project-dog-classification) - Detect whether image contains a human or a dog. If dog, then predict its breed from among 133 classes.
+- [Dog Breed Classification - PyTorch](https://github.com/pareshppp/UdacityProjects/tree/master/Deep-Learning-Nanodegree/deep-learning-v2-pytorch/project-dog-classification) - Use Deep Convolutional Networks and Transfer Learning to predict its breed from among 133 classes.
 - [NotPineapple (Capstone)](https://github.com/pareshppp/UdacityProjects/tree/master/Machine_Learning_Engineer_Nanodegree/Capstone---NotPineapple) - Classify fruit images as Pineaplle or NotPineapple using Keras.
 - [CIFAR dataset Classification - PyTorch](https://github.com/pareshppp/UdacityProjects/tree/master/Deep-Learning-Nanodegree/deep-learning-v2-pytorch/convolutional-neural-networks/cifar-cnn)
 - [CIFAR dataset Classification - Tensorflow](https://github.com/pareshppp/UdacityProjects/tree/master/Machine_Learning_Engineer_Nanodegree/Image_Classification_CIFAR-10)
