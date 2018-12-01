@@ -1,0 +1,6 @@
+.ipynb_checkpoints
+__pycache__/
+processed_celeba_small/
+processed-celeba-small.zip
+train_samples.pkl
+dlnd_face_generation.zip
