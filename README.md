@@ -26,6 +26,11 @@ All my projects from Udacity Nanodegrees:
 - [CycleGAN - PyTorch](https://github.com/pareshppp/UdacityProjects/tree/master/Deep-Learning-Nanodegree/deep-learning-v2-pytorch/cycle-gan) - Generate new images from outlines, using Cycle GANs.
 
 
+### Reinforcement Learning
+
+- [Train a Simulated Smartcab to Drive](https://github.com/pareshppp/UdacityProjects/tree/master/Machine_Learning_Engineer_Nanodegree/Training_a_SmartCab_to_Drive) - Use Q-learning techniques for a self-driving agent in a simplified world (PyGame) to aid it in effectively reaching its destinations in the allotted time.
+
+
 ## Classical Machine Learning
 
 ### Supervised Learning
@@ -35,7 +40,3 @@ All my projects from Udacity Nanodegrees:
 ### Unsupervised Learning
 
 - [Creating Customer Segments](https://github.com/pareshppp/UdacityProjects/tree/master/Machine_Learning_Engineer_Nanodegree/Creating_Customer_Segments) - Use Principal Component Analysis (PCA), Dimensionality Reduction and K-Means / Gaussian Mixture Model (GMM) to divide customers into segments.
-
-### Reinforcement Learning
-
-- [Train a Simulated Smartcab to Drive](https://github.com/pareshppp/UdacityProjects/tree/master/Machine_Learning_Engineer_Nanodegree/Training_a_SmartCab_to_Drive) - Use Q-learning techniques for a self-driving agent in a simplified world (PyGame) to aid it in effectively reaching its destinations in the allotted time.
